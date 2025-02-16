@@ -48,37 +48,6 @@ public class PlanningCollections {
         }
     }
 
-    /** Retourne l'ensemble des réservations de chSetReservations à la date parDate ou null si il n'y en a aucune.
-     */
-    public TreeSet <Reservation> getReservations (DateCalendrier parDate) {
-        TreeSet <Reservation> parSetReservations = new TreeSet <> ();
-        Iterator <Reservation> iterateur = chSetReservations.iterator();
-        while (iterateur.hasNext()) {
-            Reservation res = iterateur.next();
-            if (res.getDate().compareTo(parDate) == 0)
-                parSetReservations.add(res);
-        }
-        if (parSetReservations.size() == 0)
-            parSetReservations = null;
-        return parSetReservations;
-    }
-
-    /** Retourne l'ensemble des réservations de chSetReservations ayant la chaîne parString dans leur intitulé
-     *  ou null si il n'y en a aucune.
-     */
-    public TreeSet <Reservation> getReservations (String parString) {
-        TreeSet <Reservation> parSetReservations = new TreeSet <> ();
-        Iterator <Reservation> iterateur = chSetReservations.iterator();
-        while (iterateur.hasNext()) {
-            Reservation res = iterateur.next();
-            if (res.getIntitule().contains(parString))
-                parSetReservations.add(res);
-        }
-        if (parSetReservations.size() == 0)
-            parSetReservations = null;
-        return parSetReservations;
-    }
-
     /** Retourne l'ensemble des réservations de chSetReservations à la semaine parInt
      *  ou null si il n'y en a aucune.
      */
@@ -94,6 +63,17 @@ public class PlanningCollections {
             parSetReservations = null;
         return parSetReservations;
     }
+
+    public int plusAncienneReserv ( int parDeb , int parFin ) {
+        int i_plusAncien = parDeb ;
+        for ( int i = parDeb ; i <= parFin ; i ++) {
+            if ( chListReservations.get(i) == null )
+                return i_plusAncien ;
+            if ( chListReservations.get(i). compareTo (chListReservations.get(i_plusAncien)) < 0)
+                i_plusAncien = i ;
+            }
+        return i_plusAncien ;
+        }
 
     public String toString () {
         //return chListReservations.size() + " " + chListReservations + "\n" + "\n" + chSetReservations.size() + " " + chSetReservations
