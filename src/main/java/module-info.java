@@ -3,8 +3,9 @@ module org.example.demo {
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
-    requires org.kordamp.bootstrapfx.core;
 
     opens org.example.demo to javafx.fxml;
-    exports org.example.demo;
+    exports modele;
+    exports vue;
+    exports controleur;
 }
