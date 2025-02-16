@@ -71,9 +71,20 @@ public class PlanningCollections {
                 return i_plusAncien ;
             if ( chListReservations.get(i). compareTo (chListReservations.get(i_plusAncien)) < 0)
                 i_plusAncien = i ;
-            }
-        return i_plusAncien ;
         }
+        return i_plusAncien ;
+    }
+
+    public void tri () {
+        for ( int i = 0; i < chListReservations.size(); i ++) {
+            if ( chListReservations.get(i) == null )
+                return ;
+            int i_min = plusAncienneReserv (i , chListReservations.size() -1);
+            Reservation tmp = chListReservations.get(i_min);
+            chListReservations.set(i_min, chListReservations.get(i));
+            chListReservations.get(i) = tmp ;
+        }
+    }
 
     public String toString () {
         //return chListReservations.size() + " " + chListReservations + "\n" + "\n" + chSetReservations.size() + " " + chSetReservations
