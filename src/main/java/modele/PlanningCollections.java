@@ -82,7 +82,7 @@ public class PlanningCollections {
             int i_min = plusAncienneReserv (i , chListReservations.size() -1);
             Reservation tmp = chListReservations.get(i_min);
             chListReservations.set(i_min, chListReservations.get(i));
-            chListReservations.get(i) = tmp ;
+            chListReservations.set(i, tmp);
         }
     }
 
