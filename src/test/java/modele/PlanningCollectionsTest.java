@@ -17,8 +17,4 @@ class PlanningCollectionsTest {
     @Test
     void plusAncienneReserv() {
     }
-
-    @Test
-    void tri() {
-    }
 }
